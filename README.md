@@ -6,7 +6,7 @@ No WiFi. No app. No cloud. Just a button and a wire.
 
 > **Skill level:** This is not a plug-and-play kit. You should be comfortable with basic soldering, cutting and shortening cables.
 
-![Finished device](docs/Finished.jpg)
+![Finished device](docs/finished.jpg)
 
 ---
 
@@ -130,18 +130,18 @@ Located in `/src/wol_button.ino`.
 ## Build & Debug
 
 ### Inside the enclosure
-![Inside the enclosure](docs/Wiring.jpg)
+![Inside the enclosure](docs/wiring.jpg)
 
 ### Button mounted
 Slightly off-center to allow for everything she velcros to her monitor arm (remotes, etc.). Her computer is her mission control.
 
-![Button mounted](docs/Button in place.jpg)
+![Button mounted](docs/button_in_place.jpg)
 
 ### Early iterations
-![Design iterations](docs/Design iterations.jpeg)
+![Design iterations](docs/design_iterations.jpeg)
 
 ### Verifying Wake-on-LAN traffic
-![Wireshark capture](docs/Wireshark Capture.jpg)
+![Wireshark capture](docs/wireshark_capture.jpg)
 
 ---
 
