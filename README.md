@@ -90,6 +90,8 @@ No WiFi, phone app, or cloud service is involved — it’s just a button and an
 
 Custom design for this project. Files are in `/mechanical`:
 
+![Enclosure shown in Fusion](docs/fusion.jpg)
+
 - `enclosure.stl`
 - `lid.stl`
 
@@ -148,4 +150,5 @@ Slightly off-center to allow for everything she velcros to her monitor arm (remo
 ## License
 
 MIT — do whatever you want with it.
+
 
