@@ -136,15 +136,16 @@ Located in `/src/wol_button.ino`.
 ### Button mounted
 Slightly off-center to allow for everything she velcros to her monitor arm (remotes, etc.). Her computer is her mission control.
 
+The button’s cable is sleeved because I couldn’t sleep at night if the wiring didn’t look decent.  
+I just used what I had on hand from my PC’s wiring loom, which happened to be color coded, so don’t judge the sleeve color.
+
 ![Button mounted](docs/button_in_place.jpg)
 
 ### The numerous iterations
 I wanted the keystone to snap in **TIGHT**.
 
 It took a few design iterations to get that right, you can see them as wel as the multiple box designs in the photo below.  
-If you print this yourself, expect the keystone fit to be tight so it may take some finesse.
-
-In my opinion it’s worth the extra effort for a solid, wobble-free fit.
+If you print this yourself, expect the keystone fit to be tight so it may take some finesse. In my opinion it’s worth the extra effort for a solid, wobble-free fit.
 ![Design iterations](docs/design_iterations.jpeg)
 
 ### Verifying Wake-on-LAN traffic on Wireshark
@@ -155,6 +156,7 @@ In my opinion it’s worth the extra effort for a solid, wobble-free fit.
 ## License
 
 MIT — do whatever you want with it.
+
 
 
 
