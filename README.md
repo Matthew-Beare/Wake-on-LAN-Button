@@ -138,7 +138,7 @@ Located in `/src/wol_button.ino`.
 ### Button mounted
 
 The button is mounted on a cable raceway that’s part of her monitor arm.  
-It’s mounted slightly off-center to leave room for everything she velcros to the arm (remotes, etc.). Her computer is her mission control.
+It’s mounted slightly off-center to leave room for everything she velcros to the arm (remotes, nail files, etc.). Her computer is her mission control.
 
 The button’s cable is sleeved because I couldn’t sleep at night if the wiring didn’t look decent.  
 I just used what I had on hand from my PC’s wiring loom, which happened to be color coded, so don’t judge the sleeve color.
@@ -161,6 +161,7 @@ If you print this yourself, expect the keystone fit to be tight so it may take s
 ## License
 
 MIT — do whatever you want with it.
+
 
 
 
