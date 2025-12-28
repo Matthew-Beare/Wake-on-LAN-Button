@@ -137,10 +137,10 @@ Slightly off-center to allow for everything she velcros to her monitor arm (remo
 
 ![Button mounted](docs/button_in_place.jpg)
 
-### Early iterations
+### The numerous iterations
 ![Design iterations](docs/design_iterations.jpeg)
 
-### Verifying Wake-on-LAN traffic
+### Verifying Wake-on-LAN traffic on Wireshark
 ![Wireshark capture](docs/wireshark_capture.jpg)
 
 ---
@@ -148,3 +148,4 @@ Slightly off-center to allow for everything she velcros to her monitor arm (remo
 ## License
 
 MIT — do whatever you want with it.
+
