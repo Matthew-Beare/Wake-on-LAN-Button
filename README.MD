@@ -130,22 +130,21 @@ Located in `/src/wol_button.ino`.
 ## Build & Debug
 
 ### Inside the enclosure
-![Inside](Wiring.jpg)
+![Inside the enclosure](docs/Wiring.jpg)
 
 ### Button mounted
--Slightly off center to allow for everything she velcros to her mointor arm (remotes,etc.) Her computer is her mission control. 
-![Mounted](docs/Button in place.jpg)
+Slightly off-center to allow for everything she velcros to her monitor arm (remotes, etc.). Her computer is her mission control.
+
+![Button mounted](docs/Button in place.jpg)
 
 ### Early iterations
-![Iterations](docs/Design iterations.jpg)  
+![Design iterations](docs/Design iterations.jpeg)
 
-
-### Verifying traffic
-![Wireshark](docs/Wireshark Capture.jpg)
+### Verifying Wake-on-LAN traffic
+![Wireshark capture](docs/Wireshark Capture.jpg)
 
 ---
 
 ## License
 
 MIT — do whatever you want with it.
-
