@@ -20,6 +20,8 @@ She is a self-professed "spiller", so the laptop was moved to a safer, remote sp
 While that did keep her laptop safe, it made the power button hard to reach.  
 This little box is the result: a simple external button that lets her turn the computer on without having to lean and risk a fall.
 
+This is definitely a niche use case, but it’s a good example of designing around real-world constraints instead of ideal ones.
+
 ---
 
 ## How it works
@@ -159,6 +161,7 @@ If you print this yourself, expect the keystone fit to be tight so it may take s
 ## License
 
 MIT — do whatever you want with it.
+
 
 
 
