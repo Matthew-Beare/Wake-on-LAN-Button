@@ -88,7 +88,7 @@ No WiFi, phone app, or cloud service is involved — it’s just a button and an
 
 ## Enclosure
 
-Custom design for this project. Files are in `/mechanical`:
+Here is the custom design for this project as shown in Fusion. Files are in `/mechanical`:
 
 ![Enclosure shown in Fusion](docs/fusion.jpg)
 
@@ -149,6 +149,7 @@ Slightly off-center to allow for everything she velcros to her monitor arm (remo
 ## License
 
 MIT — do whatever you want with it.
+
 
 
 
