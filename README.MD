@@ -1,12 +1,12 @@
 # ESP32 + W5500 Wake-on-LAN Button
 
-![Finished device](docs/Finished.jpg)
-
 A small hardware button that sends a Wake-on-LAN packet to a specific computer, letting it be powered on remotely over Ethernet.
 
 No WiFi. No app. No cloud. Just a button and a wire.
 
 > **Skill level:** This is not a plug-and-play kit. You should be comfortable with basic soldering, cutting and shortening cables.
+
+![Finished device](docs/Finished.jpg)
 
 ---
 
@@ -144,4 +144,5 @@ The ESP32 firmware is located in `/src/wol_button.ino`.
 ## License
 
 MIT — do whatever you want with it.
+
 
