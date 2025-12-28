@@ -141,7 +141,7 @@ Slightly off-center to allow for everything she velcros to her monitor arm (remo
 ### The numerous iterations
 I wanted the keystone to snap in **TIGHT**.
 
-It took a few design iterations to get that right, you can see them in the photo below.  
+It took a few design iterations to get that right, you can see them as wel as the multiple box designs in the photo below.  
 If you print this yourself, expect the keystone fit to be tight so it may take some finesse.
 
 In my opinion it’s worth the extra effort for a solid, wobble-free fit.
@@ -155,6 +155,7 @@ In my opinion it’s worth the extra effort for a solid, wobble-free fit.
 ## License
 
 MIT — do whatever you want with it.
+
 
 
 
