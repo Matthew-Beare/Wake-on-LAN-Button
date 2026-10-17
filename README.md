@@ -126,7 +126,7 @@ Here is the custom design for this project as shown in Fusion. The .stl file is 
 
 ## Firmware
 
-Located in [`src/wol_button.ino.ino`](src/wol_button.ino.ino). The double `.ino` is the current filename; I haven't renamed it or changed the firmware.
+The Arduino sketch is [`src/wol_button/wol_button.ino`](src/wol_button/wol_button.ino). Open that folder in Arduino IDE to build it. The firmware itself hasn't been changed.
 
 ---
 
