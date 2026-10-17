@@ -132,7 +132,7 @@ Located in [`src/wol_button.ino.ino`](src/wol_button.ino.ino). The double `.ino`
 
 ## Firmware authorship
 
-The physical design, wiring, assembly, and testing are my work. I used AI assistance to write and debug the Arduino/C++ firmware. I don't have a strong C++ background, so I'm not going to pretend I wrote that part independently. I validated the finished behavior on the device and checked the Wake-on-LAN packets with Wireshark. The code is here so someone can inspect or modify it, not as proof of my C++ expertise.
+I designed, built, and tested this as a personal project, not a school lab. I used AI assistance to write and debug the Arduino/C++ firmware because C++ isn't my primary language. I tested the finished hardware and checked its Wake-on-LAN packets with Wireshark.
 
 ---
 
@@ -161,6 +161,14 @@ If you print this yourself, expect the keystone fit to be tight so it may take s
 
 ### Verifying Wake-on-LAN traffic on Wireshark
 ![Wireshark capture](docs/wireshark_capture.jpg)
+
+---
+
+## Before building one yourself
+
+This is my personal prototype, not a tested consumer product or a plug-and-play kit. Check the pinout and voltage requirements of your particular ESP32 and W5500 boards before connecting power. Never feed 5 V into a module that requires 3.3 V. If you shorten USB or Ethernet cables, verify every connection before plugging anything in.
+
+Wake-on-LAN also depends on the computer, network adapter, firmware settings, and power state. It won't work on every machine, and some laptops don't support waking from complete shutdown over Ethernet.
 
 ---
 
