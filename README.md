@@ -94,7 +94,7 @@ Here is the custom design for this project as shown in Fusion. The .stl file is 
 
 ![Enclosure shown in Fusion](docs/fusion.jpg)
 
-- `enclosure.stl`
+- [`Enclosure.stl`](mechanical/Enclosure.stl)
 
 ---
 
@@ -126,7 +126,13 @@ Here is the custom design for this project as shown in Fusion. The .stl file is 
 
 ## Firmware
 
-Located in `/src/wol_button.ino`.
+Located in [`src/wol_button.ino.ino`](src/wol_button.ino.ino). The double `.ino` is the current filename; I haven't renamed it or changed the firmware.
+
+---
+
+## Firmware authorship
+
+The physical design, wiring, assembly, and testing are my work. I used AI assistance to write and debug the Arduino/C++ firmware. I don't have a strong C++ background, so I'm not going to pretend I wrote that part independently. I validated the finished behavior on the device and checked the Wake-on-LAN packets with Wireshark. The code is here so someone can inspect or modify it, not as proof of my C++ expertise.
 
 ---
 
@@ -161,19 +167,3 @@ If you print this yourself, expect the keystone fit to be tight so it may take s
 ## License
 
 MIT — do whatever you want with it.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
