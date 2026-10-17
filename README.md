@@ -1,177 +1,103 @@
 # ESP32 + W5500 Wake-on-LAN Button
 
-A small hardware button that sends a Wake-on-LAN packet to a specific computer, letting it be powered on remotely over Ethernet.
+A physical button that wakes a computer over Ethernet.
 
-No WiFi. No app. No cloud. Just a button and a wire.
-
-> **Skill level:** This is not a plug-and-play kit. You should be comfortable with basic soldering, cutting and shortening cables.
+No Wi-Fi, app, or cloud service. Just a button and a cable.
 
 ![Finished device](docs/finished.jpg)
 
----
+## Why I made it
 
-## Why this exists
+I built this for my mom. She usually works from the couch, and we moved her laptop out of the way of accidental spills. That solved one problem but made the computer's power button a pain to reach.
 
-I built this for my mom.
-
-She has some mobility and back issues and usually uses her laptop from the couch.  
-She is a self-professed "spiller", so the laptop was moved to a safer, remote spot to keep it out of harm’s way.
-
-While that did keep her laptop safe, it made the power button hard to reach.  
-This little box is the result: a simple external button that lets her turn the computer on without having to lean and risk a fall.
-
-This is definitely a niche use case, but it’s a good example of designing around real-world constraints instead of ideal ones.
-
----
+So I made an external button she could keep right where she sits.
 
 ## How it works
 
-The box is built around an ESP32 and a W5500 Ethernet module.
+It's an ESP32 connected to a W5500 Ethernet module.
 
-On first setup, you hold the button while powering it on.  
-In that mode, the device listens for raw Ethernet traffic and learns the MAC address of the target computer automatically.
+The first time you set it up, you hold the button while powering it on. It listens for Ethernet traffic from the target computer, learns its MAC address, and saves it in the ESP32's flash memory.
 
-After that, pressing the button sends a Wake-on-LAN (WOL) packet to the learned network interface, causing the computer to power on.
+After that, one button press sends three Wake-on-LAN packets to the saved MAC address. The computer still has to support Wake-on-LAN and have it enabled.
 
-No WiFi, phone app, or cloud service is involved — it’s just a button and an Ethernet cable.
+## Things I learned building it
 
----
+The W5500 runs from the ESP32's 3.3 V rail. Early on, the Ethernet module was flaky and sometimes didn't start cleanly.
 
-## Design notes
+I disabled the ESP32's Wi-Fi and Bluetooth radios because this project doesn't need them. The Ethernet problem stopped happening afterward. I can't prove that was the cause, but the finished button has been reliable in use.
 
-- The W5500 is powered from the ESP32’s 3.3V rail.  
-  Early on, the Ethernet side was a bit flaky and would occasionally not come up cleanly.
+I designed and printed the enclosure in Fusion, wired the hardware, and checked the Wake-on-LAN packets in Wireshark.
 
-- So I turned off the ESP32’s WiFi and Bluetooth radios at boot.  
-  This box only uses wired Ethernet, so there’s no point burning power on radios that aren’t being used.
+![Inside the enclosure](docs/wiring.jpg)
 
-- After turning the radios off, the W5500 stopped being flaky.  
-  I can’t say for sure this is what fixed it, but the problems went away after that change and it’s been solid since.
+![Wireshark capture](docs/wireshark_capture.jpg)
 
----
+## Parts
 
-## Hardware
+| Part | Link |
+| --- | --- |
+| ESP32 development board | [Board](https://www.amazon.com/dp/B08D5ZD528) |
+| W5500 Ethernet module | [Module](https://www.amazon.com/dp/B08KXM8TKJ) |
+| Momentary push button | [Button](https://www.amazon.com/dp/B0CLG7Z5JS) |
+| USB bulkhead | [Connector](https://www.amazon.com/dp/B0D17N33TX) |
+| Button bulkhead | [Connector](https://www.amazon.com/dp/B0D9B7WR23) |
+| RJ45 keystone | [Jack](https://www.amazon.com/dp/B09W8RST25) |
+| Screws | [Screws](https://www.amazon.com/dp/B0D2R68YBC) |
+| Heat-set inserts | [Inserts](https://www.amazon.com/dp/B0CS6YVJYD) |
+| Ethernet cable | [Cable](https://www.amazon.com/dp/B0B57RDX6P) |
+| USB cable | [Cable](https://www.amazon.com/dp/B07232M876) |
+| Punchdown tool | [Tool](https://www.amazon.com/dp/B0072K1QHM) |
 
-- ESP32 Dev Module  
-- W5500 Ethernet Module (SPI)  
-- Momentary push button  
-- 3D printed or off-the-shelf enclosure (see `/mechanical`)  
-
----
-
-## Bill of Materials
-
-### Core electronics
-- ESP32 Dev Module — https://www.amazon.com/dp/B08D5ZD528  
-- W5500 Ethernet Module — https://www.amazon.com/dp/B08KXM8TKJ  
-
-### User I/O
-- Momentary push button — https://www.amazon.com/dp/B0CLG7Z5JS  
-
-### Connectors / pass-through
-- USB bulkhead — https://www.amazon.com/dp/B0D17N33TX  
-- Button bulkhead — https://www.amazon.com/dp/B0D9B7WR23  
-- RJ45 keystone — https://www.amazon.com/dp/B09W8RST25  
-
-### Mechanical
-- Screws — https://www.amazon.com/dp/B0D2R68YBC  
-- Heat-set inserts — https://www.amazon.com/dp/B0CS6YVJYD  
-
-### Cables
-- Ethernet cable — https://www.amazon.com/dp/B0B57RDX6P  
-- USB cable — https://www.amazon.com/dp/B07232M876  
-
-> Note: The USB and Ethernet cables were cut and shortened during assembly.
-
-### Tools
-- Punchdown tool — https://www.amazon.com/dp/B0072K1QHM  
-
----
-
-## Enclosure
-
-Here is the custom design for this project as shown in Fusion. The .stl file is in `/mechanical`:
-
-![Enclosure shown in Fusion](docs/fusion.jpg)
-
-- [`Enclosure.stl`](mechanical/Enclosure.stl)
-
----
+I cut and shortened the USB and Ethernet cables to fit the enclosure.
 
 ## Wiring
 
-| Signal | ESP32 GPIO | W5500 |
-|--------|------------|--------|
-| MOSI   | 23         | MOSI   |
-| MISO   | 19         | MISO   |
-| SCK    | 18         | SCK    |
-| CS     | 5          | CS     |
-| RST    | 4          | RST    |
-| 3V3    | 3V3        | VCC    |
-| GND    | GND        | GND    |
-| Button | 27         | → GND  |
+| Connection | ESP32 pin | W5500 pin |
+| --- | --- | --- |
+| SPI MOSI | GPIO 23 | MOSI |
+| SPI MISO | GPIO 19 | MISO |
+| SPI clock | GPIO 18 | SCK |
+| SPI chip select | GPIO 5 | CS |
+| Reset | GPIO 4 | RST |
+| Power | 3V3 | VCC |
+| Ground | GND | GND |
+| Button | GPIO 27 | To ground through the button |
 
----
+The button uses the ESP32's internal pull-up resistor.
 
-## Setup
+## Build it
 
-1. Wire the ESP32, W5500, and button.
-2. Flash the firmware.
-3. Hold the button while powering on to enter learn mode.
-4. Generate traffic on the target PC so the device can learn its MAC.
-5. It saves the MAC and reboots.
-6. Press the button to wake the PC.
+1. Wire the ESP32, Ethernet module, and button as shown above.
+2. Open [the Arduino sketch](src/wol_button/wol_button.ino) and flash it to the ESP32.
+3. Hold the button while powering the device on to enter learning mode.
+4. Make the target computer send Ethernet traffic so the button can learn its MAC address.
+5. Let the device save the MAC and restart.
+6. Press the button to send the Wake-on-LAN packet.
 
----
+This isn't a kit, and the exact pinout and power requirements can vary between boards. Check your parts rather than assuming every ESP32 and W5500 module is wired the same way.
 
-## Firmware
+## Enclosure and installation
 
-The Arduino sketch is [`src/wol_button/wol_button.ino`](src/wol_button/wol_button.ino). Open that folder in Arduino IDE to build it. The firmware itself hasn't been changed.
+The Fusion enclosure is available as [Enclosure.stl](mechanical/Enclosure.stl).
 
----
+![Fusion enclosure](docs/fusion.jpg)
 
-## Firmware authorship
+I went through several versions because I wanted the keystone to snap in tightly instead of rattling around.
 
-I designed, built, and tested this as a personal project, not a school lab. I used AI assistance to write and debug the Arduino/C++ firmware because C++ isn't my primary language. I tested the finished hardware and checked its Wake-on-LAN packets with Wireshark.
+![Enclosure iterations](docs/design_iterations.jpeg)
 
----
+The finished button mounts on the cable raceway of my mom's monitor arm. I sleeved the cable with leftover PC wiring loom because the bare cable looked awful.
 
-## Build & Debug
+![Button installed](docs/button_in_place.jpg)
 
-### Inside the enclosure
-![Inside the enclosure](docs/wiring.jpg)
+## About the firmware
 
-### Button mounted
+I designed and built the hardware. I used AI assistance to write and debug the Arduino/C++ firmware, then tested the finished device and checked its output in Wireshark. C++ isn't my usual language, and I don't claim the firmware was written without assistance.
 
-The button is mounted on a cable raceway that’s part of her monitor arm.  
-It’s mounted slightly off-center to leave room for everything she velcros to the arm (remotes, nail files, etc.). Her computer is her mission control.
+## If you build your own
 
-The button’s cable is sleeved because I couldn’t sleep at night if the wiring didn’t look decent.  
-I just used what I had on hand from my PC’s wiring loom, which happened to be color coded, so please don’t judge the sleeve color.
-
-![Button mounted](docs/button_in_place.jpg)
-
-### The numerous iterations
-I wanted the keystone to snap in **TIGHT**.
-
-It took a few design iterations to get that right, you can see them as well as the multiple box designs in the photo below.  
-If you print this yourself, expect the keystone fit to be tight so it may take some finesse. In my opinion it’s worth the extra effort for a solid, wobble-free fit.
-
-![Design iterations](docs/design_iterations.jpeg)
-
-### Verifying Wake-on-LAN traffic on Wireshark
-![Wireshark capture](docs/wireshark_capture.jpg)
-
----
-
-## Before building one yourself
-
-This is my personal prototype, not a tested consumer product or a plug-and-play kit. Check the pinout and voltage requirements of your particular ESP32 and W5500 boards before connecting power. Never feed 5 V into a module that requires 3.3 V. If you shorten USB or Ethernet cables, verify every connection before plugging anything in.
-
-Wake-on-LAN also depends on the computer, network adapter, firmware settings, and power state. It won't work on every machine, and some laptops don't support waking from complete shutdown over Ethernet.
-
----
+**Use these files at your own risk.** They're here to show how I built mine, not as a guarantee that the same parts or code will work for you. Double-check the wiring and supply voltage, especially before plugging in modified cables. If you damage a board, computer, or anything else following this build, that's your responsibility, not mine.
 
 ## License
 
-MIT — do whatever you want with it.
+MIT. See [LICENSE](LICENSE).
