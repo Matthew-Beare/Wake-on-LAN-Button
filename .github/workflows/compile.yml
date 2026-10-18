@@ -1,0 +1,13 @@
+name: Firmware compile
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arduino/setup-arduino-cli@v2
+      - run: arduino-cli config add board_manager.additional_urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+      - run: arduino-cli core update-index
+      - run: arduino-cli core install esp32:esp32@3.3.2
+      - run: arduino-cli lib install Ethernet@2.0.2
+      - run: arduino-cli compile --fqbn esp32:esp32:esp32 src/wol_button
