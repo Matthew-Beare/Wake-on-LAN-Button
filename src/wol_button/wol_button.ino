@@ -1,7 +1,7 @@
 /*
   ESP32 + W5500 Wake-on-LAN Button Box
-  - WiFi OFF (power saving)
-  - Bluetooth OFF (best-effort btStop)
+  - Wi-Fi disabled (this is an Ethernet-only project)
+  - Bluetooth features not used; Bluetooth radio state not verified
   - LEARN MODE (hold button at boot): sniff raw Ethernet frame via W5500 MACRAW,
     extract SOURCE MAC, store to NVS.
   - NORMAL MODE: press button -> send WOL to stored MAC (3 packets).
@@ -57,9 +57,9 @@ bool hasMAC = false;
 EthernetUDP Udp;
 
 // ============================================================
-//  ESP32 radios OFF
+//  Disable Wi-Fi for Ethernet-only use
 // ============================================================
-void disableRadios()
+void disableWiFi()
 {
   esp_log_level_set("wifi", ESP_LOG_NONE);
 
@@ -69,9 +69,6 @@ void disableRadios()
   esp_wifi_stop();
   esp_wifi_deinit();
 
-#if defined(btStop)
-  btStop();
-#endif
 }
 
 // ============================================================
@@ -349,7 +346,7 @@ void setup()
   Serial.begin(115200);
   delay(300);
 
-  disableRadios();
+  disableWiFi();
 
   pinMode(PIN_BTN, INPUT_PULLUP);
 
