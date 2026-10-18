@@ -92,7 +92,7 @@ The finished button mounts on the cable raceway of my mom's monitor arm. I sleev
 
 ## About the firmware
 
-I designed and built the hardware. I used AI assistance to write and debug the Arduino/C++ firmware, then tested the finished device and checked its output in Wireshark. C++ isn't my usual language, and I don't claim the firmware was written without assistance.
+I designed and built the hardware and used AI assistance while writing and debugging the Arduino firmware. I tested the finished button and checked its Wake-on-LAN packets in Wireshark.
 
 ## If you build your own
 
