@@ -16,7 +16,7 @@ So I made an external button she could keep right where she sits.
 
 It's an ESP32 connected to a W5500 Ethernet module.
 
-The first time you set it up, you hold the button while powering it on. It listens for Ethernet traffic from the target computer, learns its MAC address, and saves it in the ESP32's flash memory.
+During setup, hold the button while powering the device on. It reads the source MAC address of the first Ethernet frame it receives and saves it in flash. Connect it directly to the target computer while learning, so it doesn't accidentally save another device's MAC address.
 
 After that, one button press sends three Wake-on-LAN packets to the saved MAC address. The computer still has to support Wake-on-LAN and have it enabled.
 
