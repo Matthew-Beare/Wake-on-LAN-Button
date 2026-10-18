@@ -96,7 +96,7 @@ I designed and built the hardware. I used AI assistance to write and debug the A
 
 ## If you build your own
 
-**Use these files at your own risk.** They're here to show how I built mine, not as a guarantee that the same parts or code will work for you. Double-check the wiring and supply voltage, especially before plugging in modified cables. If you damage a board, computer, or anything else following this build, that's your responsibility, not mine.
+This is documentation of a personal build, not a validated commercial kit. Hardware revisions and pin assignments can vary. Verify the wiring, board voltage, and modified cable connections before powering a similar device. The files are provided as-is, without a warranty of suitability for other hardware.
 
 ## License
 
