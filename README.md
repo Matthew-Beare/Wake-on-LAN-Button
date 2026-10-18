@@ -24,7 +24,7 @@ After that, one button press sends three Wake-on-LAN packets to the saved MAC ad
 
 The W5500 runs from the ESP32's 3.3 V rail. Early on, the Ethernet module was flaky and sometimes didn't start cleanly.
 
-I disabled the ESP32's Wi-Fi and Bluetooth radios because this project doesn't need them. The Ethernet problem stopped happening afterward. I can't prove that was the cause, but the finished button has been reliable in use.
+I disabled Wi-Fi because the device uses wired Ethernet. The startup problem stopped appearing afterward, although I haven't established the root cause. The firmware does not explicitly disable Bluetooth.
 
 I designed and printed the enclosure in Fusion, wired the hardware, and checked the Wake-on-LAN packets in Wireshark.
 
